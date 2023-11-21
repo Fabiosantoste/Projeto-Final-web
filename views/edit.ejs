@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Edit Product/Transaction</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Product/Transaction</h2>
+        <form action="/products/edit/<%= product._id %>" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= product.name %>" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><%= product.description %></textarea>
+
+            <button type="submit">Save Changes</button>
+        </form>
+        <p><a href="/dashboard">Back to Dashboard</a></p>
+    </div>
+</body>
+</html>
