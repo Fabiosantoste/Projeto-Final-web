@@ -6,7 +6,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const User = require('./models/User');
 const Product = require('./models/Product');
-const app = express();
+const authConfig = require('./config/auth'); // Importe o arquivo auth.js
 
 mongoose.connect('mongodb://localhost/seu-aplicativo', {
   useNewUrlParser: true,
@@ -49,7 +49,7 @@ passport.deserializeUser((id, done) => {
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
-app.use('/products', require('./routes/products'));
+app.use('/products', authConfig.ensureAuthenticated, require('./routes/products')); 
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
