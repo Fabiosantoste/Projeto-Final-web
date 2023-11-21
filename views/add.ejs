@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>Add Product/Transaction</title>
+    <title>Adicionar produto</title>
 </head>
 <body>
     <div class="container">
-        <h2>Add Product/Transaction</h2>
+        <h2>Adicionar produto</h2>
         <form action="/products/add" method="POST">
-            <label for="name">Name:</label>
+            <label for="name">Nome:</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="description">Description:</label>
+            <label for="description">Descrição:</label>
             <textarea id="description" name="description" required></textarea>
 
-            <button type="submit">Add</button>
+            <button type="submit">Adicionar</button>
         </form>
-        <p><a href="/dashboard">Back to Dashboard</a></p>
+        <p><a href="/dashboard">Voltar para o Painel</a></p>
     </div>
 </body>
 </html>
