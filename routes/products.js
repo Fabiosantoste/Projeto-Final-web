@@ -1,3 +1,4 @@
+const app = require('../app');
 const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');

@@ -1,4 +1,7 @@
 const express = require('express');
+const app = express();
+module.exports = app;
+const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -8,6 +11,18 @@ const User = require('./models/User');
 const Product = require('./models/Product');
 const authConfig = require('./config/auth'); // Importe o arquivo auth.js
 const router = express()
+const express = require('express');
+const mongoose = require('mongoose');
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Erro de conexão com o MongoDB:'));
+db.once('open', () => {
+  console.log('Conectado ao MongoDB');
+});
+
 
 mongoose.connect('mongodb://localhost/seu-aplicativo', {
   useNewUrlParser: true,
@@ -45,6 +60,13 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
     done(err, user);
+  });
+});
+
+someEvent(() => {
+
+  app.listen(3000, () => {
+    console.log('Servidor escutando na porta 3000');
   });
 });
 
