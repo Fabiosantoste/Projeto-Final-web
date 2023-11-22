@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const User = require('./models/User');
 const Product = require('./models/Product');
 const authConfig = require('./config/auth'); // Importe o arquivo auth.js
+const router = express()
 
 mongoose.connect('mongodb://localhost/seu-aplicativo', {
   useNewUrlParser: true,
