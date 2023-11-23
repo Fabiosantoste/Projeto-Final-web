@@ -6,8 +6,8 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const User = require('./models/User');
-const Product = require('./models/Product');
+const User = require('./repository/users.repository');
+const Product = require('./repository/product.repository');
 const authConfig = require('./config/auth'); // Importe o arquivo auth.js
 const router = express()
 
