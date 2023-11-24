@@ -2,7 +2,7 @@ const app = require('../app');
 const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
-const Product = require('../models/Product');
+const StoreProductData = require('../repository/product.repository');
 
 router.get('/add', ensureAuthenticated, (req, res) => {
   res.render('add');

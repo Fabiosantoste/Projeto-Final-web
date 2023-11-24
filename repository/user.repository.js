@@ -1,6 +1,6 @@
-const {GetDatabase} = require('../database/database');
+const database = require('../database/database');
 
-async function StoreUserData(userData) {
+async function storeUserData(userData) {
 	const {collections} = await GetDatabase();
 
 	return collections.users.insertOne(
@@ -8,15 +8,16 @@ async function StoreUserData(userData) {
 	);
 }
 
-async function ExistsUserByEmail(user_email) {
-	const {collections} = await GetDatabase();
-
-	return collections.users.countDocuments({
-		'user.email': user_email
-	}, {'id_1': 1});
+async function findUser(email, password) {
+	let db = await database.GetDatabase();
+	let collection = db.collections.users;
+	let result = await collection.find({"email": email, "password": password})
+	  .limit(1)
+	  .toArray();
+	return result;
 }
 
 module.exports = {
-    StoreUserData,
-    ExistsUserByEmail
+    storeUserData,
+    findUser
 }

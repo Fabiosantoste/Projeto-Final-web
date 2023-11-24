@@ -1,9 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 const { MongoClient, Collection } = require('mongodb');
 require('dotenv').config();
-
-const url = process.env.MONGO_URI;
-const client = new MongoClient(url);
+const client = new MongoClient(process.env.MONGO_URI);
 
 /**
  * @type {{collections: {[collection: string]: Collection}, connection: null, db: null}}
@@ -24,7 +22,8 @@ async function mountCollections (db) {
 async function GetDatabase () {
     if (!database.connection) {
         database.connection = await client.connect();
-        database.db = client.db('my_database');
+        database.db = client.db('projetofinal');
+     
     }
 
     database.collections = await mountCollections(database.db);

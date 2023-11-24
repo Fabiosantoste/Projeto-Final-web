@@ -1,6 +1,6 @@
-const {GetDatabase} = require('../database/database');
+const {db} = require('../database/database');
 
-async function StoreProductData(userData) {
+async function SaveProduct(userData) {
 	const {collections} = await GetDatabase();
 
 	return collections.products.insertOne(
@@ -8,7 +8,7 @@ async function StoreProductData(userData) {
 	);
 }
 
-async function ExistsProductByName(product_name) {
+async function GetProduct(product_name) {
     const {collections} = await GetDatabase();
 
     return collections.products.countDocuments({
@@ -19,6 +19,6 @@ async function ExistsProductByName(product_name) {
 
 
 module.exports = {
-    StoreProductData,
-    ExistsProductByName
+    SaveProduct,
+    GetProduct
 };

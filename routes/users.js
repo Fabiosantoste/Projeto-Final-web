@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+const StoreUserData = require('../repository/user.repository');
 
 router.get('/login', (req, res) => {
   res.render('login');
